@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-xl">
+
+    <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapse_target">
+
+        <a class="navbar-brand d-none d-xl-block m-2 text-light" href="{{ path('index') }}">
+            Wild Circus
+        </a>
+
+        <ul class="navbar-nav d-flex justify-content-around align-items-center w-100">
+            <li class="nav-item d-flex ">
+                <a href="" class="nav-link"><span class="nav-effect text-light">PRESÉSENTATION</span></a>
+            </li>
+
+            <li class="nav-item d-flex ">
+                <a href="" class="nav-link"><span class="nav-effect text-light">SPECTACLES</span></a>
+            </li>
+
+            <li class="nav-item d-flex align-self-center">
+                {% if app.user %}
+                    <a href="" class="nav-link"><span class="nav-effect text-light">DÉCONNEXION</span></a>
+                {% else %}
+                    <a href="" class="nav-link"><span class="nav-effect text-light">CONNEXION</span></a>
+                {% endif %}
+            </li>
+        </ul>
+
+    </div>
+</nav>
