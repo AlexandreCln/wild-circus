@@ -3,7 +3,18 @@
 @import "home";
 @import "navbar";
 
-* {
-    font-family: 'Cinzel', serif;
+body {
+    margin-top: 9rem;
+    font-family: 'Merriweather', serif;
+    color: whitesmoke;
+    background-color: $background-body;
 }
 
+h1, .navbar {
+    font-family: 'Cinzel', serif;
+    font-size: 3.3rem;
+}
+
+p {
+    font-size: 16pt;
+}
