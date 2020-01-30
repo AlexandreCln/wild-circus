@@ -7,23 +7,36 @@
     <div class="collapse navbar-collapse" id="collapse_target">
 
         <a class="navbar-brand d-none d-xl-block m-2 ml-3 text-black" href="{{ path('index') }}">
-            Wild Circus
+            {% if is_granted("ROLE_ADMIN") %}
+                Wild Circus Admin
+            {% else %}
+                Wild Circus
+            {% endif %}
+
         </a>
 
         <ul class="navbar-nav d-flex justify-content-around align-items-center w-100">
             <li class="nav-item d-flex ">
-                <a href="" class="nav-link"><span class="nav-effect text-black">PRESÉSENTATION</span></a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="" class="nav-link"><span class="nav-effect text-black">PRÉSENTATION</span></a>
+                {% else %}
+                    <a href="" class="nav-link"><span class="nav-effect text-black">PRÉSENTATION</span></a>
+                {% endif %}
             </li>
 
             <li class="nav-item d-flex ">
-                <a href="" class="nav-link"><span class="nav-effect text-black">SPECTACLES</span></a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="{{ path('admin_spectacles_index') }}" class="nav-link"><span class="nav-effect text-black">SPECTACLES</span></a>
+                {% else %}
+                    <a href="{{ path('spectacles_index') }}" class="nav-link"><span class="nav-effect text-black">SPECTACLES</span></a>
+                {% endif %}
             </li>
 
             <li class="nav-item d-flex align-self-center">
                 {% if app.user %}
-                    <a href="" class="nav-link"><span class="nav-effect text-black">DÉCONNEXION</span></a>
+                    <a href="{{ path('app_logout') }}" class="nav-link"><span class="nav-effect text-black">DÉCONNEXION</span></a>
                 {% else %}
-                    <a href="" class="nav-link"><span class="nav-effect text-black">CONNEXION</span></a>
+                    <a href="{{ path('app_login') }}" class="nav-link"><span class="nav-effect text-black">CONNEXION</span></a>
                 {% endif %}
             </li>
         </ul>

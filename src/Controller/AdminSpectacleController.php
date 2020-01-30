@@ -44,18 +44,8 @@ class AdminSpectacleController extends AbstractController
         }
 
         return $this->render('admin_spectacle/new.html.twig', [
-            'admin_spectacle' => $spectacle,
+            'spectacle' => $spectacle,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="admin_spectacles_show", methods={"GET"})
-     */
-    public function show(Spectacle $spectacle): Response
-    {
-        return $this->render('admin_spectacle/show.html.twig', [
-            'admin_spectacle' => $spectacle,
         ]);
     }
 
@@ -69,12 +59,13 @@ class AdminSpectacleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le spectacle a été modifié.');
 
             return $this->redirectToRoute('admin_spectacles_index');
         }
 
         return $this->render('admin_spectacle/edit.html.twig', [
-            'admin_spectacle' => $spectacle,
+            'spectacle' => $spectacle,
             'form' => $form->createView(),
         ]);
     }
@@ -88,6 +79,7 @@ class AdminSpectacleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($spectacle);
             $entityManager->flush();
+            $this->addFlash('primary', 'Le spectacle a été supprimé.');
         }
 
         return $this->redirectToRoute('admin_spectacles_index');

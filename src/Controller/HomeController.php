@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     public function index(SpectacleRepository$spectacleRepository) {
 
         return $this->render('home/index.html.twig', [
-            'spectacles' => $spectacleRepository->findBy([], ['date' => 'DESC'], self::LIMIT, 0)
+            'spectacles' => $spectacleRepository->findBy([], ['date' => 'ASC'], self::LIMIT, 0)
         ]);
     }
 
