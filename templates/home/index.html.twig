@@ -4,7 +4,49 @@
 
 
 {% block body %}
+    <div class="container">
+        <h1 class="m-4">Prochainement</h1>
 
-    <h1>Hello</h1>
+        <div class="row">
+            {% for spectacle in spectacles %}
+                <div class="m-4 col-10 col-xl-4 col-lg-5 card bg-black border-secondary">
+                    <img class="spectacles-img card-img-top p-3 rounded img-fluid" src="{{ spectacle.picture }}" alt="card spectacle">
+                    <div class="card-body d-flex flex-column align-content-between">
+                        <h4 class="card-title border-bottom text-secondary">{{ spectacle.town }} <p class="float-right">{{ spectacle.date|date('d M Y') }}</p> </h4>
+                        <p class="card-text overflow-hidden">{{ spectacle.description }}</p>
+                        <a href="#" class="btn btn-secondary w-100 rounded-bottom mt-auto">Réserver</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <p class="m-2">La liberté signifie que chaque être humain reçoit une bonne éducation qui lui se qualifie pour le travail qui
+            lui convient
+
+            Pour satisfaire ces besoins matériels par le loyer, le propriétaire original donne le droit d'interférer
+            dans votre vie personnelle et de contrôler vos impératifs, même si le propriétaire d'origine soit la société
+            en général
+
+            Liberté sera ensuite triompher définitivement et universellement<br>
+
+            Si la classe ouvrière, par exemple, soumet toutes les autres classes d'une société donnée, il devient alors
+            son seul héritier et forme sa base matérielle et sociale
+
+            Cependant, même dans ce nouvel environnement, les personnes resteront toujours l'élément de base dans le
+            processus de production
+
+            Ces faits sont évidents
+
+            La structure politique nationale est endommagé quand il descend à un niveau social inférieur, à savoir, la
+            famille et de la tribu, et tente d'agir à leur manière et à adopter leurs vues
+
+            Ils sont ceux avec lesquels ils entretiennent une relation<br>
+
+            Ces constitutions sont basées uniquement sur les locaux des instruments de régime dictatorial qui prévaut
+            aujourd'hui dans le monde, allant de l'individu à la partie
+
+            Votes peuvent être achetés et falsifiés</p>
+
+    </div>
 
 {% endblock %}
