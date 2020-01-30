@@ -17,13 +17,17 @@
                         <h4 class="card-title border-bottom text-secondary">{{ spectacle.town }} <p
                                     class="float-right">{{ spectacle.date|date('d M Y') }}</p></h4>
                         <p class="card-text overflow-hidden">{{ spectacle.description }}</p>
-                        <a href="{{ path('spectacles_show', {'id': spectacle.id}) }}" class="btn btn-outline-secondary w-100 rounded-bottom mt-auto"><p class="m-0">
+                        <a href="{{ path('spectacles_show', {'id': spectacle.id}) }}"
+                           class="btn btn-outline-secondary w-100 rounded-bottom mt-auto"><p class="m-0">
                                 Voir plus</p></a>
                     </div>
                 </div>
             {% endfor %}
         </div>
+
+
         <div class="container">
+        <hr class="style-eight m-5">
 
             <h1 class="text-center m-5">L'Histoire du cirque</h1>
 
@@ -39,6 +43,32 @@
                 béton, les peintures sont refaites, les installations électriques et techniques rénovées. Les Fratellini
                 en deviennent les directeurs artistiques. Desprez continue sa politique d’investissement en construisant
                 une piscine sous la piste ! </p>
+
+            <hr class="style-eight m-5">
+
+            <h1 class="text-center m-5">La troupe</h1>
+
+            <div class="row no-gutters d-flex justify-content-center">
+
+                <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black border-secondary">
+                    <img class="spectacles-img card-img-top p-3 rounded img-fluid"
+                         src="https://www.circusstardust.com/wp-content/uploads/2017/03/Artist-1509-3.jpg"
+                         alt="photo troupe diabolo">
+                    <div class="card-body d-flex flex-column align-content-between">
+                        <h4 class="card-title border-bottom text-secondary">Diab</h4>
+                    </div>
+                </div>
+
+                <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black border-secondary">
+                    <img class="spectacles-img card-img-top p-3 rounded img-fluid"
+                         src="https://images.unsplash.com/photo-1544926323-8463f67ecb5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
+                         alt="photo troupe Jack & Jess">
+                    <div class="card-body d-flex flex-column align-content-between">
+                        <h4 class="card-title border-bottom text-secondary">Jack & Jenny</h4>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     </div>
