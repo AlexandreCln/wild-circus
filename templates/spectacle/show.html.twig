@@ -18,17 +18,25 @@
                 <p class="m-3 mx-auto">« {{ spectacle.description }} »</p>
             </div>
 
-            <p class="m-3"><i class="fas fa-tags"></i> {{ spectacle.price > 0 ? spectacle.price ~ ' €' : 'gratuit' }}
-            </p>
 
 
-            <a href="{{ path('spectacles_book', {'id': spectacle.id}) }}" class="btn btn-outline-secondary m-3">
-                <p class="m-2"> {{ app.user ? 'Réserver': 'Connectez vous pour réserver' }}</p>
-            </a>
+            {% if spectacle.places > 0 %}
+                <p class="m-3"><i class="fas fa-tags"></i> {{ spectacle.price > 0 ? spectacle.price ~ ' €' : 'gratuit' }}
+                </p>
+                <a href="{{ path('spectacles_book', {'id': spectacle.id}) }}" class="btn btn-outline-secondary m-3">
+                    <p class="m-2"> {{ app.user ? 'Réserver': 'Connectez vous pour réserver' }}</p>
+                </a>
+            {% else %}
+                <p>Complet !</p>
+                <a href="{{ path('spectacles_index') }}" class="btn btn-outline-secondary m-3">
+                    <p class="m-1">Voir les autres dates</p>
+                </a>
+            {% endif %}
 
         </div>
 
-        <a class="btn btn-secondary m-3" href="{{ path('spectacles_index') }}">Tous les spectacles</a>
+        <a class="btn btn-secondary m-3" href="{{ path('spectacles_index') }}"><p class="m-1">Tous les spectacles</p>
+        </a>
 
     </div>
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Editer Profil{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <h1 class="m-2 mt-5 mb-4">Editer ses informations</h1>
+
+        {{ include('admin_spectacle/_form.html.twig', {'button_label': 'Éditer'}) }}
+    </div>
+
+{% endblock %}

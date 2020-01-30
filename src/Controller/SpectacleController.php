@@ -55,6 +55,7 @@ class SpectacleController extends AbstractController
     {
         $user = $this->getUser();
         $spectacle->addReservation($user);
+        $spectacle->setPlaces($spectacle->getPlaces() - 1);
         $entityManager->persist($spectacle);
         $entityManager->flush();
         $this->addFlash('success', 'Votre place à été réservé.');
