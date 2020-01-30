@@ -1,0 +1,28 @@
+@import "vars";
+@import "~bootstrap/scss/bootstrap";
+@import "home";
+@import "navbar";
+
+body {
+    margin-top: 9rem;
+    font-family: 'Merriweather', serif;
+    color: whitesmoke;
+    background-color: $background-body;
+}
+
+h1, .navbar {
+    font-family: 'Cinzel', serif;
+    font-size: 3.3rem;
+}
+
+p {
+    font-size: 16pt;
+}
+
+.login-form {
+    max-width: 40rem;
+}
+
+a:focus, img:focus {
+    outline: 0;
+}

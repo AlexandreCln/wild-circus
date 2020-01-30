@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Editer Spectacle{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <h1 class="m-2 mt-5 mb-4">Editer le spectacle</h1>
+
+        <a class="btn btn-primary m-2" href="{{ path('admin_spectacles_index') }}">Liste des spectacles</a>
+
+        {{ include('admin_spectacle/_form.html.twig', {'button_label': 'Éditer'}) }}
+    </div>
+{% endblock %}
