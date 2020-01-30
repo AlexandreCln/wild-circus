@@ -51,7 +51,17 @@ class Spectacle
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $room_address;
+    private $roomAddress;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="reservation")
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -132,12 +142,40 @@ class Spectacle
 
     public function getRoomAddress(): ?string
     {
-        return $this->room_address;
+        return $this->roomAddress;
     }
 
-    public function setRoomAddress(string $room_address): self
+    public function setRoomAddress(string $roomAddress): self
     {
-        $this->room_address = $room_address;
+        $this->roomAddress = $roomAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(User $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->addReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(User $reservation): self
+    {
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            $reservation->removeReservation($this);
+        }
 
         return $this;
     }

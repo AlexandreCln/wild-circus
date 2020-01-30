@@ -53,9 +53,7 @@ class SpectacleFixtures extends Fixture
             $spectacle->setPicture('https://images.unsplash.com/photo-1542332606-b2d1c52a6c33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80');
             $spectacle->setPlaces(rand(20, 70));
             $spectacle->setPrice(rand(0, 25));
-
             $spectacle->setTown($town);
-
             $spectacle->setRoomAddress($faker->address);
             $manager->persist($spectacle);
         }

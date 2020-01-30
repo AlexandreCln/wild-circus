@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Spectacle;
+use App\Form\SpectacleSearchType;
 use App\Form\SpectacleType;
 use App\Repository\SpectacleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,10 +19,22 @@ class AdminSpectacleController extends AbstractController
     /**
      * @Route("/", name="admin_spectacles_index", methods={"GET"})
      */
-    public function index(SpectacleRepository $spectacleRepository): Response
+    public function index(SpectacleRepository $spectacleRepository, Request $request): Response
     {
+        $form = $this->get('form.factory')->createNamed('', SpectacleSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $search = $data['search'];
+            $spectacles = $spectacleRepository->findLikeName($search);
+        } else {
+            $spectacles = $spectacleRepository->findBy([], ['date' => 'ASC']);
+        }
+
         return $this->render('admin_spectacle/index.html.twig', [
-            'spectacles' => $spectacleRepository->findAll(),
+            'spectacles' => $spectacles,
+            'form' => $form->createView()
         ]);
     }
 

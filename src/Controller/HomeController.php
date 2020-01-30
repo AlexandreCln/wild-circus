@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    const LIMIT = 4;
+    const LIMIT = 3;
 
     /**
      * @Route("/", name="index")
