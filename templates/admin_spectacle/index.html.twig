@@ -6,6 +6,17 @@
     <div class="container">
         <h1 class="m-3 mt-5">Spectacles</h1>
 
+        <div class="row m-3 mb-5">
+            <div class="col-lg-4 col-12 bg-dark-color rounded p-3">
+                {{ form_start(form) }}
+                {{ form_label(form) }}
+                <a href="{{ path('admin_spectacles_index') }}" class="float-right"><i class="fas fa-sync text-secondary"></i></a>
+                {{ form_widget(form) }}
+                <button class="btn btn-outline-secondary w-100">Rechercher</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
         <a class="btn btn-secondary m-3" href="{{ path('admin_spectacles_new') }}">Ajouter <i
                     class="fas fa-plus-circle"></i></a>
 

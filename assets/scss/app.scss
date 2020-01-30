@@ -22,3 +22,7 @@ p {
 .login-form {
     max-width: 40rem;
 }
+
+a:focus, img:focus {
+    outline: 0;
+}
