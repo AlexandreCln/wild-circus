@@ -29,7 +29,7 @@ class SpectacleFixtures extends Fixture
         'REIMS',
         'GRENOBLE',
         'TOULON',
-        'AMIENS',
+        'BORDEAUX',
         'LIMOGES',
         'ANNECY',
         'METZ',
@@ -48,7 +48,7 @@ class SpectacleFixtures extends Fixture
         foreach (self::TOWNS as $town) {
 
             $spectacle = new Spectacle();
-            $spectacle->setDate($faker->dateTime);
+            $spectacle->setDate($faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years', $timezone = null));
             $spectacle->setDescription($faker->text);
             $spectacle->setPicture('https://images.unsplash.com/photo-1542332606-b2d1c52a6c33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80');
             $spectacle->setPlaces(rand(20, 70));
