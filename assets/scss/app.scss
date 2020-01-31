@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "home";
 @import "navbar";
+@import "~rfs/scss";
 
 body {
     margin-top: 9rem;
@@ -12,11 +13,12 @@ body {
 
 h1, .navbar {
     font-family: 'Cinzel', serif;
-    font-size: 3.3rem;
+    @include font-size(64px);
 }
 
 p {
-    font-size: 16pt;
+    @include font-size(22px);
+    hyphens: auto;
 }
 
 .login-form {
