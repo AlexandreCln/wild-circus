@@ -21,7 +21,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="account_edit", methods={"GET","POST"})
+     * @Route("/account/{id}/edit", name="account_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user): Response
     {
@@ -32,7 +32,7 @@ class AccountController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Vos informations ont été modifiés.');
 
-            return $this->redirectToRoute('app_account');
+            return $this->redirectToRoute('account');
         }
 
         return $this->render('account/edit.html.twig', [
