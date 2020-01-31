@@ -17,11 +17,11 @@
 
         <ul class="navbar-nav d-flex justify-content-end align-items-center w-100">
 
-            <li class="nav-item d-xl-none mr-5">
+            <li class="nav-item d-xl-none mr-xl-5">
                 <a href="{{ path('index') }}" class="nav-link"><span class="nav-effect text-black">ACCUEIL</span></a>
             </li>
 
-            <li class="nav-item d-flex mr-5">
+            <li class="nav-item d-flex mr-xl-5">
                 {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_spectacles_index') }}" class="nav-link"><span class="nav-effect text-black">SPECTACLES</span></a>
                 {% else %}
@@ -30,12 +30,12 @@
             </li>
 
             {% if app.user %}
-            <li class="nav-item d-flex align-self-center mr-5">
+            <li class="nav-item d-flex align-self-center mr-xl-5">
                 <a href="{{ path('account') }}" class="nav-link"><span class="nav-effect text-black">COMPTE</span></a>
             </li>
             {% endif %}
 
-            <li class="nav-item d-flex align-self-center mr-5">
+            <li class="nav-item d-flex align-self-center mr-xl-5">
                 {% if app.user %}
                     <a href="{{ path('app_logout') }}" class="nav-link"><span class="nav-effect text-black">DÉCONNEXION</span></a>
                 {% else %}
