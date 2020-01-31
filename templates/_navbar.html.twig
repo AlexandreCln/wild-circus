@@ -17,6 +17,10 @@
 
         <ul class="navbar-nav d-flex justify-content-end align-items-center w-100">
 
+            <li class="nav-item d-xl-none mr-5">
+                <a href="{{ path('index') }}" class="nav-link"><span class="nav-effect text-black">ACCUEIL</span></a>
+            </li>
+
             <li class="nav-item d-flex mr-5">
                 {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_spectacles_index') }}" class="nav-link"><span class="nav-effect text-black">SPECTACLES</span></a>
