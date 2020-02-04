@@ -20,25 +20,24 @@
 
         {% for spectacle in spectacles %}
 
-            <div class="d-flex justify-content-between m-3 p-2 bg-dark-color rounded text-light flex-wrap">
+            <div class="d-flex m-3 p-2 bg-dark-color rounded text-light">
 
-                <div class="d-flex w-75 flex-wrap">
-                    <p class="m-3 mx-auto">{{ spectacle.town }}</p>
-                    <p class="m-3 mx-auto">{{ spectacle.date ? spectacle.date|date('d M Y') : '' }}</p>
+                <div class="w-50 d-flex justify-content-around flex-wrap">
+                    <p class="m-3">{{ spectacle.town }}</p>
+                    <p class="m-3">{{ spectacle.date ? spectacle.date|date('d M Y') : '' }}</p>
+                </div>
+
+                <div class="w-50 d-flex justify-content-between flex-wrap">
                     {% if spectacle.places == 0 %}
                         <p class="m-3"><i class="fas fa-users"></i> complet</p>
                     {% else %}
-                        <p class="m-3 mx-auto">{{ spectacle.price > 0 ? spectacle.price ~ '€' : 'gratuit' }}</p>
+                        <p class="m-3 my-auto">{{ spectacle.price > 0 ? spectacle.price ~ '€' : 'gratuit' }}</p>
                     {% endif %}
 
-                </div>
-
-                <div class="d-flex flex-wrap ml-3">
-                    <a class="btn btn-secondary m-3 text-light"
+                    <a class="btn btn-secondary text-light m-3 my-auto"
                        href="{{ path('spectacles_show', {'id': spectacle.id}) }}">
                         Voir plus
                     </a>
-
                 </div>
 
             </div>
