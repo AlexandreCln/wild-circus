@@ -4,73 +4,85 @@
 
 
 {% block body %}
-    <h1 class="text-center">Prochaines dates</h1>
+    <section class="home">
+        <h1 class="text-center">Prochaines dates</h1>
 
-    <div class="container-fluid">
-
-        <div class="row no-gutters d-flex justify-content-center">
-            {% for spectacle in spectacles %}
-                <div class="m-5 col-12 col-lg-3 col-lg-5 card bg-black border-secondary">
-                    <img class="spectacles-img card-img-top p-3 rounded img-fluid" src="{{ spectacle.picture }}"
-                         alt="card spectacle">
-                    <div class="card-body d-flex flex-column align-content-between">
-                        <h3 class="card-title border-bottom text-secondary">{{ spectacle.town }} <p
-                                    class="float-right">{{ spectacle.date|date('d M Y') }}</p></h3>
-                        <p class="card-text overflow-hidden">{{ spectacle.description }}</p>
-                        <a href="{{ path('spectacles_show', {'id': spectacle.id}) }}"
-                           class="btn btn-outline-secondary w-100 rounded-bottom mt-auto"><p class="m-0">
-                                Voir plus</p></a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-
-        <div class="container">
-        <hr class="style-eight m-5">
-
-            <h1 class="text-center m-5">L'Histoire du cirque</h1>
-
-            <p class="m-lg-5 mt-5"> Les premiers spectacles de la famille Bouglione mettaient en scène des fauves. En 1910,
-                Joseph dit Sampion Bouglione est sauvé par son fils durant une présentation de fauves. <br><br>
-
-                En 1926, Alexandre découvre un stock d’affiche de Buffalo Bill datant du Wild Wild West Show de 1904. Il
-                convainc son père de les utiliser et de recréer un spectacle librement inspiré de l’épopée américaine :
-                le Stade du capitaine Buffalo Bill. C’est le triomphe !<br><br>
-
-                Parallèlement, le Cirque d’Hiver redevient un cirque le 12 octobre 1923 avec l’arrivée de Gaston
-                Desprez. Le bâtiment est entièrement restauré : les gradins en bois sont remplacés par des structures en
-                béton, les peintures sont refaites, les installations électriques et techniques rénovées. Les Fratellini
-                en deviennent les directeurs artistiques. Desprez continue sa politique d’investissement en construisant
-                une piscine sous la piste ! </p>
-
-            <hr class="style-eight m-5">
-
-            <h1 class="text-center m-5">La troupe</h1>
+        <div class="container-fluid">
 
             <div class="row no-gutters d-flex justify-content-center">
+                {% for spectacle in spectacles %}
+                    <div class="m-5 col-12 col-lg-3 col-lg-5 card bg-black">
+                        <img class="spectacles-img card-img-top p-3 rounded img-fluid" src="{{ spectacle.picture }}"
+                             alt="card spectacle">
 
-                <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black border-secondary">
-                    <img class="spectacles-img card-img-top p-3 rounded img-fluid"
-                         src="https://www.circusstardust.com/wp-content/uploads/2017/03/Artist-1509-3.jpg"
-                         alt="photo troupe diabolo">
-                    <div class="card-body d-flex flex-column align-content-between">
-                        <h4 class="card-title border-bottom text-secondary">Diab</h4>
-                    </div>
-                </div>
+                        <div class="m-4 d-flex justify-content-between border-bottom">
+                            <h3 class="card-title text-secondary">{{ spectacle.town }}</h3>
+                            <p class="text-secondary">{{ spectacle.date|date('d M Y') }}</p>
+                        </div>
 
-                <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black border-secondary">
-                    <img class="spectacles-img card-img-top p-3 rounded img-fluid"
-                         src="https://images.unsplash.com/photo-1544926323-8463f67ecb5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
-                         alt="photo troupe Jack & Jess">
-                    <div class="card-body d-flex flex-column align-content-between">
-                        <h4 class="card-title border-bottom text-secondary">Jack & Jenny</h4>
+                        <div class="card-body d-flex flex-column align-content-between">
+                            <p class="card-text overflow-hidden">{{ spectacle.description }}</p>
+                            <a href="{{ path('spectacles_show', {'id': spectacle.id}) }}"
+                               class="btn btn-outline-secondary w-100 rounded-bottom mt-auto"><p class="m-0">
+                                    Voir plus</p></a>
+                        </div>
                     </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="container">
+                <hr class="style-eight m-5">
+
+                <h1 class="text-center m-5">L'Histoire du cirque</h1>
+
+                <p class="m-lg-5 mt-5"> Les premiers spectacles de la famille Bouglione mettaient en scène des fauves.
+                    En
+                    1910,
+                    Joseph dit Sampion Bouglione est sauvé par son fils durant une présentation de fauves. <br><br>
+
+                    En 1926, Alexandre découvre un stock d’affiche de Buffalo Bill datant du Wild Wild West Show de
+                    1904. Il
+                    convainc son père de les utiliser et de recréer un spectacle librement inspiré de l’épopée
+                    américaine :
+                    le Stade du capitaine Buffalo Bill. C’est le triomphe !<br><br>
+
+                    Parallèlement, le Cirque d’Hiver redevient un cirque le 12 octobre 1923 avec l’arrivée de Gaston
+                    Desprez. Le bâtiment est entièrement restauré : les gradins en bois sont remplacés par des
+                    structures en
+                    béton, les peintures sont refaites, les installations électriques et techniques rénovées. Les
+                    Fratellini
+                    en deviennent les directeurs artistiques. Desprez continue sa politique d’investissement en
+                    construisant
+                    une piscine sous la piste ! </p>
+
+                <hr class="style-eight m-5">
+
+                <h1 class="text-center m-5">La troupe</h1>
+
+                <div class="row no-gutters d-flex justify-content-center">
+
+                    <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black">
+                        <img class="spectacles-img card-img-top p-3 rounded img-fluid"
+                             src="https://www.circusstardust.com/wp-content/uploads/2017/03/Artist-1509-3.jpg"
+                             alt="photo troupe diabolo">
+                        <div class="card-body d-flex flex-column align-content-between">
+                            <h4 class="card-title border-bottom text-secondary">Diab</h4>
+                        </div>
+                    </div>
+
+                    <div class="m-5 col-10 col-lg-3 col-lg-5 card bg-black">
+                        <img class="spectacles-img card-img-top p-3 rounded img-fluid"
+                             src="https://images.unsplash.com/photo-1544926323-8463f67ecb5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
+                             alt="photo troupe Jack & Jess">
+                        <div class="card-body d-flex flex-column align-content-between">
+                            <h4 class="card-title border-bottom text-secondary">Jack & Jenny</h4>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
-
+    </section>
 {% endblock %}
