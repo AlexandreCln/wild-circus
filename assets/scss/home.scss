@@ -9,10 +9,6 @@ body {
     background-position: center;
 }
 
-.card {
-    max-width: 400px;
-}
-
 hr.style-eight {
     overflow: visible; /* For IE */
     height: 30px;
@@ -35,6 +31,6 @@ hr.style-eight:before { /* Not really supposed to work, but does */
 .home {
     .card {
         box-shadow: 0 0 4px $secondary, -0 -0 4px $secondary;
-        //border: solid 1px $secondary;
+        max-width: 400px;
     }
 }
